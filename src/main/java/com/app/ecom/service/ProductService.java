@@ -74,4 +74,11 @@ public class ProductService {
         return true;
       } ).orElse( false );
   }
+
+  public List<ProductResponse> searchProduct( String keyword ) {
+    return productRepository.searchProduct(keyword)
+      .stream()
+      .map( this::mapToProductResponse)
+      .toList();
+  }
 }
