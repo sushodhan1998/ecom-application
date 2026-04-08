@@ -1,7 +1,10 @@
 package com.app.ecom.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -19,11 +22,11 @@ public class CartItem {
   private Long id;
 
   @ManyToOne
-  @JoinColumn(name = "user_id",nullable = false)
+  @JoinColumn(name = "user_id", nullable = false)
   private User user;
 
   @ManyToOne
-  @JoinColumn(name = "product_id",nullable = false)
+  @JoinColumn(name = "product_id", nullable = false)
   private Product product;
 
   private Integer quantity;

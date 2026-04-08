@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping( "/api/products" )
+@RequestMapping("/api/products")
 public class ProductController {
 
   private final ProductService productService;
@@ -33,7 +33,7 @@ public class ProductController {
     );
   }
 
-  @PutMapping( "/{id}" )
+  @PutMapping("/{id}")
   public ResponseEntity<ProductResponse> updateProduct(
     @PathVariable Long id,
     @RequestBody ProductRequest productRequest
@@ -43,14 +43,14 @@ public class ProductController {
       .orElse(ResponseEntity.notFound().build());
   }
 
-  @DeleteMapping( "/{id}" )
+  @DeleteMapping("/{id}")
   public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
     Boolean isDeleted = productService.deleteProduct(id);
     return isDeleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
   }
 
   @GetMapping("/search")
-  public ResponseEntity<List<ProductResponse>> searchProduct(@RequestParam String keyword){
-    return new ResponseEntity<>(productService.searchProducts(keyword),HttpStatus.OK);
+  public ResponseEntity<List<ProductResponse>> searchProduct(@RequestParam String keyword) {
+    return new ResponseEntity<>(productService.searchProducts(keyword), HttpStatus.OK);
   }
 }

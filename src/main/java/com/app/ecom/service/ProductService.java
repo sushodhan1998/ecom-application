@@ -24,7 +24,7 @@ public class ProductService {
 
   public Optional<ProductResponse> updateProduct(Long id, ProductRequest productRequest) {
     return productRepository.findById(id)
-      .map(existingProduct ->{
+      .map(existingProduct -> {
         updateProductFromRequest(existingProduct, productRequest);
         productRepository.save(existingProduct);
         return mapToProductResponse(existingProduct);

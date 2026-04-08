@@ -57,7 +57,7 @@ public class UserService {
     userResponse.setPhone(user.getPhone());
     userResponse.setRole(user.getRole());
 
-    if(Objects.nonNull(user.getAddress())){
+    if (Objects.nonNull(user.getAddress())) {
       AddressDTO addressDTO = new AddressDTO();
       addressDTO.setCity(user.getAddress().getCity());
       addressDTO.setCountry(user.getAddress().getCountry());
@@ -74,7 +74,7 @@ public class UserService {
     user.setLastName(userRequest.getLastName());
     user.setEmail(userRequest.getEmail());
     user.setPhone(userRequest.getPhone());
-    if(Objects.nonNull(userRequest.getAddress())){
+    if (Objects.nonNull(userRequest.getAddress())) {
       Address address = new Address();
       address.setCity(userRequest.getAddress().getCity());
       address.setCountry(userRequest.getAddress().getCountry());
